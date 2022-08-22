@@ -38,13 +38,11 @@ function searchEvent(options: SearchEventOptions) {
 }
 
 const searchQuery: SearchEventOptions = {
-
-
   query: 1,
   eventType: "courses"
 };
 
-const searchQuery2:SearchEventOptions = {
+const searchQuery2: SearchEventOptions = {
   query: 2,
   eventType: "groups"
 };
@@ -60,19 +58,32 @@ Should return:
 Research methods one study group 
 */
 
-const searchResults2=searchEvent(searchQuery2);
+const searchResults2 = searchEvent(searchQuery2);
 
-console.log(searchResults2)
+console.log(searchResults2);
 
-const searchQuery3:SearchEventOptions={
-  query:'art',
-  eventType: 'courses'
-}
+const searchQuery3: SearchEventOptions = {
+  query: "art",
+  eventType: "courses"
+};
 const searchResults3 = searchEvent(searchQuery3);
 console.log(searchResults3);
-const searchQuery4:SearchEventOptions={
-  query:'research',
-  eventType:'groups'
+const searchQuery4: SearchEventOptions = {
+  query: "research",
+  eventType: "groups"
+};
+const searchResults4 = searchEvent(searchQuery4);
+console.log(searchResults4);
+
+type enrolledEvents = (Course | StudyGroup)[];
+let enrolledEvents: enrolledEvents = [];
+function enroll(event: Course | StudyGroup): void {
+  enrolledEvents.push(event);
 }
-const searchResults4 = searchEvent(searchQuery4)
-console.log(searchResults4)
+
+/*
+Should be able to enroll a searched event
+*/
+
+enroll(searchEvent(searchQuery)[0]);
+console.debug("Enrolled Events", enrolledEvents);
