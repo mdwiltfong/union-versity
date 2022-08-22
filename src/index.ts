@@ -38,12 +38,14 @@ function searchEvent(options: SearchEventOptions) {
 }
 
 const searchQuery: SearchEventOptions = {
+
+
   query: 1,
   eventType: "courses"
 };
 
-const searchQuery2 = {
-  query: 1,
+const searchQuery2:SearchEventOptions = {
+  query: 2,
   eventType: "groups"
 };
 /*
@@ -52,3 +54,25 @@ Improvional arts lab
 */
 const searchResults1 = searchEvent(searchQuery);
 console.log(searchResults1);
+
+/*
+Should return:
+Research methods one study group 
+*/
+
+const searchResults2=searchEvent(searchQuery2);
+
+console.log(searchResults2)
+
+const searchQuery3:SearchEventOptions={
+  query:'art',
+  eventType: 'courses'
+}
+const searchResults3 = searchEvent(searchQuery3);
+console.log(searchResults3);
+const searchQuery4:SearchEventOptions={
+  query:'research',
+  eventType:'groups'
+}
+const searchResults4 = searchEvent(searchQuery4)
+console.log(searchResults4)
